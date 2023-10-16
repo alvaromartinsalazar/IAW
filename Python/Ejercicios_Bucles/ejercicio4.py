@@ -2,10 +2,10 @@
 #Escribir un programa que pida al usuario un nœmero entero positivo y muestre por 
 #pantalla la cuenta atr‡s desde ese nœmero hasta cero separados por comas.
 
-numero = int(input("Ingrese un nœmero entero positivo: "))
+numero = int(input("Ingrese un numero entero positivo: "))
 
 if numero <= 0:
-    print("El nœmero ingresado no es positivo.")
+    print("El numero ingresado no es positivo.")
 else:
     cuenta = []
     
@@ -14,4 +14,4 @@ else:
     
     cuenta_str = ', '.join(cuenta)
     
-    print("Cuenta atr‡s hasta 0:", cuenta_str)
+    print("Cuenta atras hasta 0:", cuenta_str)
