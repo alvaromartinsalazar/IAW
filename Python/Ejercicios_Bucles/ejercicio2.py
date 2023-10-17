@@ -2,8 +2,8 @@
 #años que ha cumplido (desde 1 hasta su edad).
 
 i=0
-v_edad=int(input("¿Cuál es tu edad?: "))
+v_edad=int(input("Tu edad: "))
 
 while i<v_edad:
     i=i+1
-    print("Has cumplido: ",i," años")
+    print("Has cumplido: ",i," anos")
