@@ -4,18 +4,24 @@
 # luego indique que palabra es la más larga 
 # =============================================================================
 
-lista=[]
-mayor=""
+# Crear una lista para almacenar las palabras ingresadas
+palabras = []
 
-i=True
-while i:
-    palabra=str(input("Introduce una palabra: "))
-    lista.append(palabra)
-    i=input("¿Quieres seguir introduciendo palabras? (Si/No)") == "Si"
-    print(lista)
+# Pedir al usuario que ingrese palabras hasta que ingrese "fin"
+while True:
+    palabra = input("Ingresa una palabra (o escribe 'fin' para terminar): ")
     
-for a in lista:
-    if len(lista[a]>len(mayor)):
-        mayor=lista[a]
-        
-print("La palabra mas grande es: ", mayor)
+    if palabra.lower() == "fin":
+        break
+    
+    palabras.append(palabra)
+
+# Verificar si la lista de palabras está vacía
+if not palabras:
+    print("No se ingresaron palabras.")
+else:
+    # Encontrar la palabra más larga en la lista
+    palabra_mas_larga = max(palabras, key=len)
+
+    # Mostrar la palabra más larga
+    print(f"La palabra más larga es: {palabra_mas_larga}, con {len(palabra_mas_larga)} caracteres.")
