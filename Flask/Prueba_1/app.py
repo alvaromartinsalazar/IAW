@@ -2,8 +2,14 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["POST", "GET"])
 def hola():
+    usuario=""
+    contrasena=""
+    if (request.method == "POST"):
+        usuario = request.form.get("usuario")
+        contrasena = request.form.get("contrasena")
+        print(usuario, contrasena)
     return render_template("index.html")
 
 @app.route("/eustaquio")
