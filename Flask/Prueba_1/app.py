@@ -10,7 +10,7 @@ def hola():
         usuario = request.form.get("usuario")
         contrasena = request.form.get("contrasena")
         print(usuario, contrasena)
-    return render_template("index.html")
+    return render_template("index.html", usuario=usuario, contrasena=contrasena)
 
 @app.route("/eustaquio")
 def eustaquio():
