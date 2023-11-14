@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/estilos/styles.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
     <title>Calculadora de IMC</title>
 </head>
 <body>
     <h1>Calculadora de IMC</h1>
     <form method="post">
         <label for="altura">Altura (en metros): </label>
-        <input type="text" name="altura" required>
+        <input type="text" name="altura" placeholder="Ej: 1.85" required>
         <br>
         <label for="peso">Peso: </label>
-        <input type="text" name="peso" required>
+        <input type="text" name="peso" placeholder="Ej: 78.9" required>
         <br>
         <input type="submit" value="Calcular">
+        <br>
+        {{texto}}
+        {{div0}}
     </form>
 </body>
 </html>
