@@ -1,7 +1,5 @@
 html{
     background-color: beige;
-    justify-content: center;
-    align-items: center;
 }
 
 *{
@@ -12,10 +10,13 @@ html{
 form{
     background-color: burlywood;
     width: 30%;
+    height: 50%;
     padding: 20px;
     border-radius: 15px;
-    align-items: center;
-    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 1px solid black;
 }
 
@@ -30,4 +31,23 @@ form input:last-of-type{
 
 form input:last-of-type:hover{
     background-color: beige;
+}
+
+div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+label{
+    font-size: 200%;
+}
+
+input{
+    width: 90%;
+}
+
+button{
+    padding: 20px;
 }
