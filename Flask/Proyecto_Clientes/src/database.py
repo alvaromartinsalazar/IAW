@@ -4,5 +4,5 @@ database = mysql.connector.connect(
     host='localhost',
     user='root',
     password='',
-    database='clientes'
+    database='usuarios'
 )

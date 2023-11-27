@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/css/login_style.css">
+    <link rel="shortcut icon" href="/img/ventana.png" type="image/x-icon">
+</head>
+<body>
+    <h2>Iniciar Sesión</h2>
+    <form action="/src/app.py" method="POST">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+</body>
+</html>
