@@ -9,17 +9,25 @@ body {
     text-align: center;
     color: white;
   }
-  form {
+  #container{
+    background-color: white;
     max-width: 400px;
     margin: 0 auto;
-    background-color: white;
     padding: 20px;
     border-radius: 20px;
+    text-align: center;
+  }
+  form {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    justify-content: center;
   }
   form div{
     max-width: 80%;
     margin: 0 auto;
   }
+  
   input[type="text"],
   input[type="email"],
   input[type="password"],
@@ -30,7 +38,8 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
   }
-  input[type="submit"] {
+  input[type="submit"],
+  button {
     background-color: #869BB6;
     color: white;
     padding: 10px 20px;
@@ -38,6 +47,10 @@ body {
     border-radius: 5px;
     cursor: pointer;
   }
-  input[type="submit"]:hover {
+  input[type="submit"]:hover,
+  button:hover {
     background-color: #2E374F;
+  }
+  button:last-of-type{
+    margin-bottom: 20px;
   }

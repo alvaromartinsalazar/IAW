@@ -18,12 +18,10 @@ body {
     background-color: white;
     border-radius: 20px;
   }
-  input[type="text"],
-  input[type="password"]
-  input[type="email"] {
-    width: 100%;
+  input{
+    margin-bottom: 20px;
+    width: 95%;
     padding: 10px;
-    margin-bottom: 15px;
     border-radius: 5px;
     border: 1px solid #ccc;
   }
@@ -34,6 +32,8 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    width: 40%;
+    margin: 0 auto;
   }
   input[type="submit"]:hover {
     background-color: #2E374F;

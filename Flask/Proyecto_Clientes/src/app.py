@@ -30,6 +30,10 @@ def addUser():
     password = request.form['password']
     confirma = request.form['confirma']
 
+    if (password != confirma):
+        return render_template('registro.html', error = "Las contraseñas son distintas")
+
+
 
     if nombre and apellidos and email and password and confirma:
         cursor = db.database.cursor()
@@ -38,6 +42,7 @@ def addUser():
         cursor.execute(sql, data)
         db.database.commit()
     return render_template('login.html')
+
 
 
 # Ruta para el formulario de inicio de sesión
@@ -55,7 +60,7 @@ def login():
 
         if user:
             # Si las credenciales son correctas, redirige a la página principal
-            return render_template('registro.html')
+            return render_template('index.html')
         else:
             # Si las credenciales son incorrectas, puedes renderizar nuevamente el formulario de inicio de sesión con un mensaje de error
             return render_template('login.html', error="Credenciales incorrectas. Inténtalo de nuevo.")
@@ -63,33 +68,6 @@ def login():
         # Si la solicitud es GET, muestra el formulario de inicio de sesión
         return render_template('login.html')
 
-
-
-
-"""@app.route('/delete/<string:id>')
-def delete(id):
-    cursor = db.database.cursor()
-    sql = "DELETE FROM clientes WHERE id=%s"
-    data = (id,)
-    cursor.execute(sql, data)
-    db.database.commit()
-    return redirect(url_for('home'))
-
-@app.route('/edit/<string:id>', methods=['POST'])
-def edit(id):
-    nombre = request.form['nombre']
-    apellidos = request.form['apellidos']
-    email = request.form['email']
-    coche = request.form['coche']
-    matricula = request.form['matricula']
-
-    if nombre and apellidos and email and coche and matricula:
-        cursor = db.database.cursor()
-        sql = "UPDATE clientes SET nombre = %s, apellidos = %s, email = %s, coche = %s, matricula = %s WHERE id = %s"
-        data = (nombre, apellidos, email, coche, matricula, id)
-        cursor.execute(sql, data)
-        db.database.commit()
-    return redirect(url_for('home'))"""
 
 
 if __name__ == '__main__':
