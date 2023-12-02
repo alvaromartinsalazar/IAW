@@ -67,6 +67,73 @@ def login():
     else:
         # Si la solicitud es GET, muestra el formulario de inicio de sesión
         return render_template('login.html')
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+@app.route('/')
+def casa():
+    cursor = db.database.cursor()
+    cursor.execute("SELECT * FROM clientes")
+    myresult = cursor.fetchall()
+    #Convertir los datos a diccionario
+    insertObject = []
+    columnNames = [column[0] for column in cursor.description]
+    for record in myresult:
+        insertObject.append(dict(zip(columnNames, record)))
+    cursor.close()
+    return render_template('index.html', data=insertObject)
+
+#Ruta para guardar usuarios en la bdd
+@app.route('/home', methods=['POST'])
+def addClients():
+    nombre = request.form['nombre']
+    apellidos = request.form['apellidos']
+    email = request.form['email']
+    coche = request.form['coche']
+    matricula = request.form['matricula']
+
+    if nombre and apellidos and email and coche and matricula:
+        cursor = db.database.cursor()
+        sql = "INSERT INTO clientes (nombre, apellidos, email, coche, matricula) VALUES (%s, %s, %s, %s, %s)"
+        data = (nombre, apellidos, email, coche, matricula)
+        cursor.execute(sql, data)
+        db.database.commit()
+    return redirect(url_for('casa'))
+
+
+@app.route('/delete/<string:id>')
+def delete(id):
+    cursor = db.database.cursor()
+    sql = "DELETE FROM clientes WHERE id=%s"
+    data = (id,)
+    cursor.execute(sql, data)
+    db.database.commit()
+    return redirect(url_for('casa'))
+
+@app.route('/edit/<string:id>', methods=['POST'])
+def edit(id):
+    nombre = request.form['nombre']
+    apellidos = request.form['apellidos']
+    email = request.form['email']
+    coche = request.form['coche']
+    matricula = request.form['matricula']
+
+    if nombre and apellidos and email and coche and matricula:
+        cursor = db.database.cursor()
+        sql = "UPDATE clientes SET nombre = %s, apellidos = %s, email = %s, coche=%s, matricula=%s WHERE id = %s"
+        data = (nombre, apellidos, email, coche, matricula, id)
+        cursor.execute(sql, data)
+        db.database.commit()
+    return redirect(url_for('casa'))
+
 
 
 
