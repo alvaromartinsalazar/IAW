@@ -78,7 +78,7 @@ def login():
     
     
     
-@app.route('/')
+@app.route('/home')
 def casa():
     cursor = db.database.cursor()
     cursor.execute("SELECT * FROM clientes")
